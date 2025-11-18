@@ -14,7 +14,12 @@
 #include <vector>
 #include <string>
 
-AVLTree::AVLTree(const AVLTree& other) {
+
+AVLTree::AVLTree() : root(nullptr) {
+
+}
+
+AVLTree::AVLTree(const AVLTree& other) : root(nullptr) {
 
 }
 
@@ -34,8 +39,7 @@ size_t AVLTree::AVLNode::getHeight() const {
     return 0;
 }
 
-AVLTree::AVLTree() {
-}
+
 
 bool AVLTree::removeNode(AVLNode*& current){
     if (!current) {
