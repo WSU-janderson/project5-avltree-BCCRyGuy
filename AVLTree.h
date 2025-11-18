@@ -54,6 +54,11 @@ public:
     // You will implement this, but it is needed for removeNode()
     void balanceNode(AVLNode*& node);
 
+    bool insert(const std::string &key, size_t value);
+
+    bool remove(const std::string &key);
+
+    bool contains(const std::string &key) const;
 };
 
 #endif //AVLTREE_H

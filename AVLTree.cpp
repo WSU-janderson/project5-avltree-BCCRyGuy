@@ -74,3 +74,15 @@ bool AVLTree::remove(AVLNode *&current, KeyType key) {
 
 void AVLTree::balanceNode(AVLNode *&node) {
 }
+
+bool AVLTree::insert(const std::string& key, size_t value) {
+    return false;
+}
+
+bool AVLTree::remove(const std::string& key) {
+    return false;
+}
+
+bool AVLTree::contains(const std::string& key) const {
+    return false;
+}
