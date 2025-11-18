@@ -9,7 +9,9 @@
 
 #ifndef AVLTREE_H
 #define AVLTREE_H
+#include <optional>
 #include <string>
+#include <bits/stl_vector.h>
 
 using namespace std;
 
@@ -59,6 +61,12 @@ public:
     bool remove(const std::string &key);
 
     bool contains(const std::string &key) const;
+
+    std::optional<size_t> get(const std::string &key) const;
+
+    size_t &operator[](const std::string &key);
+
+    vector<std::string> findRange(const std::string &lowKey, const std::string &highKey) const;
 };
 
 #endif //AVLTREE_H

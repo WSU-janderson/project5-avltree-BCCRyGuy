@@ -10,6 +10,8 @@
 
 #include "AVLTree.h"
 
+#include <optional>
+#include <vector>
 #include <string>
 
 size_t AVLTree::AVLNode::numChildren() const {
@@ -85,4 +87,16 @@ bool AVLTree::remove(const std::string& key) {
 
 bool AVLTree::contains(const std::string& key) const {
     return false;
+}
+
+std::optional<size_t> AVLTree::get(const std::string& key) const {
+    return std::nullopt;
+}
+
+size_t& AVLTree::operator[](const std::string& key) {
+
+}
+
+vector<std::string> AVLTree::findRange( const std::string& lowKey, const std::string& highKey) const {
+
 }
