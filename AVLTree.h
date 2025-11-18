@@ -42,24 +42,11 @@ protected:
 
 public:
 
-
-    friend std::ostream& operator<<(ostream& os, const AVLTree & avlTree);
-
-    private:
-    AVLNode* root;
-
-    /* Helper methods for remove */
-    // this overloaded remove will do the recursion to remove the node
-    bool remove(AVLNode*& current, KeyType key);
+    AVLTree();
 
     AVLTree(const AVLTree &other);
 
     ~AVLTree();
-
-    // removeNode contains the logic for actually removing a node based on the numebr of children
-    bool removeNode(AVLNode*& current);
-    // You will implement this, but it is needed for removeNode()
-    void balanceNode(AVLNode*& node);
 
     bool insert(const std::string &key, size_t value);
 
@@ -80,6 +67,24 @@ public:
     size_t getHeight() const;
 
     void operator=(const AVLTree &other);
+
+    friend std::ostream& operator<<(ostream& os, const AVLTree & avlTree);
+
+    private:
+    AVLNode* root;
+
+    /* Helper methods for remove */
+    // this overloaded remove will do the recursion to remove the node
+    bool remove(AVLNode*& current, KeyType key);
+
+
+
+    // removeNode contains the logic for actually removing a node based on the numebr of children
+    bool removeNode(AVLNode*& current);
+    // You will implement this, but it is needed for removeNode()
+    void balanceNode(AVLNode*& node);
+
+
 };
 
 #endif //AVLTREE_H
