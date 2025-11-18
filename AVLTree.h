@@ -1,5 +1,10 @@
 /**
  * AVLTree.h
+ *
+ * Project 5 AVLTree
+ *
+ * Rylan Cheetham
+ *
  */
 
 #ifndef AVLTREE_H
