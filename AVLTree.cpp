@@ -14,6 +14,10 @@
 #include <vector>
 #include <string>
 
+AVLTree::AVLTree(const AVLTree& other) {
+
+}
+
 size_t AVLTree::AVLNode::numChildren() const {
     return 0;
 }
@@ -98,5 +102,21 @@ size_t& AVLTree::operator[](const std::string& key) {
 }
 
 vector<std::string> AVLTree::findRange( const std::string& lowKey, const std::string& highKey) const {
+
+}
+
+std::vector<std::string> AVLTree::keys() const {
+
+}
+
+size_t AVLTree::size() const {
+
+}
+
+size_t AVLTree::getHeight() const {
+
+}
+
+void AVLTree::operator=(const AVLTree& other) {
 
 }

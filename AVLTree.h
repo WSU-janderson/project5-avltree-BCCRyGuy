@@ -51,6 +51,9 @@ public:
     /* Helper methods for remove */
     // this overloaded remove will do the recursion to remove the node
     bool remove(AVLNode*& current, KeyType key);
+
+    AVLTree(const AVLTree &other);
+
     // removeNode contains the logic for actually removing a node based on the numebr of children
     bool removeNode(AVLNode*& current);
     // You will implement this, but it is needed for removeNode()
@@ -67,6 +70,14 @@ public:
     size_t &operator[](const std::string &key);
 
     vector<std::string> findRange(const std::string &lowKey, const std::string &highKey) const;
+
+    std::vector<std::string> keys() const;
+
+    size_t size() const;
+
+    size_t getHeight() const;
+
+    void operator=(const AVLTree &other);
 };
 
 #endif //AVLTREE_H
