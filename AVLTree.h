@@ -43,7 +43,7 @@ protected:
 public:
 
 
-
+    friend std::ostream& operator<<(ostream& os, const AVLTree & avlTree);
 
     private:
     AVLNode* root;
@@ -53,6 +53,8 @@ public:
     bool remove(AVLNode*& current, KeyType key);
 
     AVLTree(const AVLTree &other);
+
+    ~AVLTree();
 
     // removeNode contains the logic for actually removing a node based on the numebr of children
     bool removeNode(AVLNode*& current);

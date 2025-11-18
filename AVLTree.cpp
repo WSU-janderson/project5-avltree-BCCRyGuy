@@ -18,6 +18,10 @@ AVLTree::AVLTree(const AVLTree& other) {
 
 }
 
+AVLTree::~AVLTree() {
+
+}
+
 size_t AVLTree::AVLNode::numChildren() const {
     return 0;
 }
