@@ -121,11 +121,11 @@ std::vector<std::string> AVLTree::keys() const {
 }
 
 size_t AVLTree::size() const {
-
+    return 0;
 }
 
 size_t AVLTree::getHeight() const {
-
+    return 0;
 }
 
 void AVLTree::operator=(const AVLTree& other) {
