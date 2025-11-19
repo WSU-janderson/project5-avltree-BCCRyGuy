@@ -164,12 +164,14 @@ bool AVLTree::remove(AVLNode *&current, KeyType key) {
 void AVLTree::balanceNode(AVLNode *&current) {
     updateHeight(current);
 
+    // right heavy rotations
     if (current->getBalance(current) == -2) {
         if (current->getBalance(current->right) == 1) {
             // double rotation case
             current->right = rotateRight(current->right);
         }
         current = rotateLeft(current);
+    // left heavy rotations
     } else if (current->getBalance(current) == 2) {
         if (current->getBalance(current->left) == -1) {
             // double rotation case
