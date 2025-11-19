@@ -28,7 +28,14 @@ AVLTree::~AVLTree() {
 }
 
 size_t AVLTree::AVLNode::numChildren() const {
-    return 0;
+    size_t count = 0;
+    if (left != nullptr) {
+        count++;
+    }
+    if (right != nullptr) {
+        count++;
+    }
+    return count;
 }
 
 bool AVLTree::AVLNode::isLeaf() const {
