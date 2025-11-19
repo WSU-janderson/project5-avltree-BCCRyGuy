@@ -29,7 +29,7 @@ AVLTree::~AVLTree() {
 
 }
 
-// return number of children of node
+// return number of children of node (left and right are child nodes)
 size_t AVLTree::AVLNode::numChildren() const {
     size_t count = 0;
     if (left != nullptr) {
@@ -162,6 +162,7 @@ bool AVLTree::remove(AVLNode *&current, KeyType key) {
 
 // rebalance node if unbalanced
 void AVLTree::balanceNode(AVLNode *&node) {
+
 }
 
 // insert new key-value pair. Referenced 10.11.1 zybooks
