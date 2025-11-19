@@ -39,7 +39,11 @@ size_t AVLTree::AVLNode::numChildren() const {
 }
 
 bool AVLTree::AVLNode::isLeaf() const {
-    return false;
+    if (left == nullptr && right == nullptr) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 size_t AVLTree::AVLNode::getHeight() const {
