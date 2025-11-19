@@ -37,6 +37,7 @@ protected:
         // number of hops to deepest leaf node
         size_t getHeight() const;
 
+        int getBalance(const AVLNode* node) const;
 
     };
 
@@ -76,8 +77,6 @@ public:
     /* Helper methods for remove */
     // this overloaded remove will do the recursion to remove the node
     bool remove(AVLNode*& current, KeyType key);
-
-
 
     // removeNode contains the logic for actually removing a node based on the numebr of children
     bool removeNode(AVLNode*& current);

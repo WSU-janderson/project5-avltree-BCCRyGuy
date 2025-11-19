@@ -39,6 +39,9 @@ size_t AVLTree::AVLNode::getHeight() const {
     return 0;
 }
 
+int AVLTree::AVLNode::getBalance(const AVLNode *node) const {
+
+}
 
 
 bool AVLTree::removeNode(AVLNode*& current){
