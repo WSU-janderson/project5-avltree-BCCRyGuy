@@ -61,6 +61,8 @@ public:
     // check if key exists
     bool contains(const std::string &key) const;
 
+    bool containsRecursive(AVLNode *node, const std::string &key) const;
+
     // get key's value
     std::optional<size_t> get(const std::string &key) const;
 

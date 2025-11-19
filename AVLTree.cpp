@@ -148,17 +148,21 @@ bool AVLTree::remove(const std::string& key) {
 
 // check if key exists
 bool AVLTree::contains(const std::string& key) const {
-    AVLNode* current = root;
-    while (current != nullptr) {
-        if (current->key == key) {
+    return containsRecursive(root, key);
+}
+
+bool AVLTree::containsRecursive(AVLNode* node, const std::string& key) const {
+    if (node != nullptr) {
+        if (node->key == key) {
             return true;
-        } else if (key < current->key) {
-            current = current->left;
+        } else if (key < node->key) {
+            return containsRecursive(node->left, key);
         } else {
-            current = current->right;
+            return containsRecursive(node->right, key);
         }
     }
     return false;
+
 }
 
 // get value for key
