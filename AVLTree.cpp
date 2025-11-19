@@ -56,14 +56,14 @@ size_t AVLTree::AVLNode::getHeight() const {
 }
 
 // calculate balance of node
-int AVLTree::AVLNode::getBalance(const AVLNode *node) const {
+int AVLTree::AVLNode::getBalance(const AVLNode *current) const {
     int leftHeight = -1;
-    if (node->left != nullptr) {
-        leftHeight = static_cast<int>(node->left->getHeight());
+    if (current->left != nullptr) {
+        leftHeight = static_cast<int>(current->left->getHeight());
     }
     int rightHeight = -1;
-    if (node->right != nullptr) {
-        rightHeight = static_cast<int>(node->right->getHeight());
+    if (current->right != nullptr) {
+        rightHeight = static_cast<int>(current->right->getHeight());
     }
     return leftHeight - rightHeight;
 }
