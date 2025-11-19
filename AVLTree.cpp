@@ -173,7 +173,7 @@ void AVLTree::balanceNode(AVLNode *&current) {
     } else if (current->getBalance(current) == 2) {
         if (current->getBalance(current->left) == -1) {
             // double rotation case
-            current->left = rotateLeft(current->);
+            current->left = rotateLeft(current->left);
         }
         current = rotateRight(current);
     }
