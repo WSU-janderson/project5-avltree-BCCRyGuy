@@ -149,6 +149,18 @@ bool AVLTree::contains(const std::string& key) const {
 
 // get value for key
 std::optional<size_t> AVLTree::get(const std::string& key) const {
+    AVLNode* current = root;
+
+    while (current != nullptr) {
+        if (current->key == key) {
+            return current->value;
+        } else if (key < current->key) {
+            current = current->left;
+        } else {
+            current = current->right;
+        }
+    }
+
     return std::nullopt;
 }
 
