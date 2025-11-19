@@ -160,9 +160,23 @@ bool AVLTree::remove(AVLNode *&current, KeyType key) {
     return removed;
 }
 
-// rebalance node if unbalanced
+// rebalance node if unbalanced. Directly referenced Figure 11.2.2 in zybooks
 void AVLTree::balanceNode(AVLNode *&current) {
+    updateHeight(current);
 
+    if (current->getBalance(current) == -2) {
+        if (current->getBalance(current->right) == 1) {
+            // double rotation case
+            current->right = rotateRight(current->right);
+        }
+        current = rotateLeft(current);
+    } else if (current->getBalance(current) == 2) {
+        if (current->getBalance(current->left) == -1) {
+            // double rotation case
+            current->left = rotateLeft(current->);
+        }
+        current = rotateRight(current);
+    }
 }
 
 // insert new key-value pair. Referenced 10.11.1 zybooks
