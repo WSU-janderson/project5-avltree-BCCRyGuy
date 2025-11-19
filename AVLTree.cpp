@@ -161,7 +161,7 @@ bool AVLTree::remove(AVLNode *&current, KeyType key) {
 }
 
 // rebalance node if unbalanced
-void AVLTree::balanceNode(AVLNode *&node) {
+void AVLTree::balanceNode(AVLNode *&current) {
 
 }
 
