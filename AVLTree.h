@@ -36,39 +36,53 @@ protected:
         bool isLeaf() const;
         // number of hops to deepest leaf node
         size_t getHeight() const;
-
+        // return balance (left height - right height)
         int getBalance(const AVLNode* node) const;
 
     };
 
 public:
 
+    // default constructor
     AVLTree();
 
+    // copy constructor
     AVLTree(const AVLTree &other);
 
+    // destructor
     ~AVLTree();
 
+    // insert key-value pair
     bool insert(const std::string &key, size_t value);
 
+    // remove key-value pair
     bool remove(const std::string &key);
 
+    // check if key exists
     bool contains(const std::string &key) const;
 
+    // get key's value
     std::optional<size_t> get(const std::string &key) const;
 
+    // access value by key
     size_t &operator[](const std::string &key);
 
+    // get keys within range
     vector<std::string> findRange(const std::string &lowKey, const std::string &highKey) const;
 
+    // return all keys in tree
     std::vector<std::string> keys() const;
 
+    // return number of nodes
     size_t size() const;
 
+    // return height of tree
     size_t getHeight() const;
 
+    // copy assignment
     void operator=(const AVLTree &other);
 
+    // overloaded << operator for printing tree
     friend std::ostream& operator<<(ostream& os, const AVLTree & avlTree);
 
     private:

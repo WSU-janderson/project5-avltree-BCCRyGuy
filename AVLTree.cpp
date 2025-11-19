@@ -14,19 +14,22 @@
 #include <vector>
 #include <string>
 
-
+// default constructor
 AVLTree::AVLTree() : root(nullptr) {
 
 }
 
+// copy constructor
 AVLTree::AVLTree(const AVLTree& other) : root(nullptr) {
 
 }
 
+// destructor
 AVLTree::~AVLTree() {
 
 }
 
+// return number of children of node
 size_t AVLTree::AVLNode::numChildren() const {
     size_t count = 0;
     if (left != nullptr) {
@@ -38,6 +41,7 @@ size_t AVLTree::AVLNode::numChildren() const {
     return count;
 }
 
+// check if node is a leaf
 bool AVLTree::AVLNode::isLeaf() const {
     if (left == nullptr && right == nullptr) {
         return true;
@@ -46,10 +50,12 @@ bool AVLTree::AVLNode::isLeaf() const {
     }
 }
 
+// return height of node
 size_t AVLTree::AVLNode::getHeight() const {
     return height;
 }
 
+// calculate balance of node
 int AVLTree::AVLNode::getBalance(const AVLNode *node) const {
     int leftHeight = -1;
     if (node->left != nullptr) {
@@ -62,7 +68,7 @@ int AVLTree::AVLNode::getBalance(const AVLNode *node) const {
     return leftHeight - rightHeight;
 }
 
-
+// remove node
 bool AVLTree::removeNode(AVLNode*& current){
     if (!current) {
         return false;
@@ -107,49 +113,61 @@ bool AVLTree::removeNode(AVLNode*& current){
     return true;
 }
 
+// recursive remove helper
 bool AVLTree::remove(AVLNode *&current, KeyType key) {
     return false;
 }
 
+// rebalance node if unbalanced
 void AVLTree::balanceNode(AVLNode *&node) {
 }
 
+// insert new key-value pair
 bool AVLTree::insert(const std::string& key, size_t value) {
     return false;
 }
 
+// remove key-value pair
 bool AVLTree::remove(const std::string& key) {
     return false;
 }
 
+// check if key exists
 bool AVLTree::contains(const std::string& key) const {
     return false;
 }
 
+// get value for key
 std::optional<size_t> AVLTree::get(const std::string& key) const {
     return std::nullopt;
 }
 
+// access value by key
 size_t& AVLTree::operator[](const std::string& key) {
 
 }
 
+// return key in range
 vector<std::string> AVLTree::findRange( const std::string& lowKey, const std::string& highKey) const {
 
 }
 
+// return all keys
 std::vector<std::string> AVLTree::keys() const {
 
 }
 
+// return number of nodes
 size_t AVLTree::size() const {
     return 0;
 }
 
+// return height of tree
 size_t AVLTree::getHeight() const {
     return 0;
 }
 
+// copy assignment
 void AVLTree::operator=(const AVLTree& other) {
 
 }
