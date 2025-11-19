@@ -181,6 +181,14 @@ void AVLTree::balanceNode(AVLNode *&current) {
     }
 }
 
+AVLTree::AVLNode* AVLTree::rotateRight(AVLNode* current) {
+
+}
+
+AVLTree::AVLNode* AVLTree::rotateLeft(AVLNode* current) {
+
+}
+
 // insert new key-value pair. Referenced 10.11.1 zybooks
 bool AVLTree::insert(const std::string& key, size_t value) {
     return insertRecursive(root, key, value);
