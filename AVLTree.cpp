@@ -70,7 +70,16 @@ int AVLTree::AVLNode::getBalance(const AVLNode *node) const {
 
 // update height
 void AVLTree::updateHeight(AVLNode* node) {
+    int leftHeight = -1;
+    if (node->left != nullptr) {
+        leftHeight = static_cast<int>(node->left->getHeight());
+    }
+    int rightHeight = -1;
+    if (node->right != nullptr) {
+        rightHeight = static_cast<int>(node->right->getHeight());
+    }
 
+    node->height = std::max(leftHeight, rightHeight) + 1;
 }
 
 // remove node
