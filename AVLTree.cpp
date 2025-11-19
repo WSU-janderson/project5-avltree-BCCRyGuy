@@ -134,6 +134,16 @@ bool AVLTree::remove(const std::string& key) {
 
 // check if key exists
 bool AVLTree::contains(const std::string& key) const {
+    AVLNode* current = root;
+    while (current != nullptr) {
+        if (current->key == key) {
+            return true;
+        } else if (key < current->key) {
+            current = current->left;
+        } else {
+            current = current->right;
+        }
+    }
     return false;
 }
 
