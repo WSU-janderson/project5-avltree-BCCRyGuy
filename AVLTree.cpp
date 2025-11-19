@@ -167,18 +167,19 @@ bool AVLTree::containsRecursive(AVLNode* node, const std::string& key) const {
 
 // get value for key
 std::optional<size_t> AVLTree::get(const std::string& key) const {
-    AVLNode* current = root;
+    return getRecursive(root, key);
+}
 
-    while (current != nullptr) {
-        if (current->key == key) {
-            return current->value;
-        } else if (key < current->key) {
-            current = current->left;
+std::optional<size_t> AVLTree::getRecursive(AVLNode* node, const std::string& key) const {
+    if (node != nullptr) {
+        if (node->key == key) {
+            return node->value;
+        } else if (key < node->key) {
+            return getRecursive(node->left, key);
         } else {
-            current = current->right;
+            return getRecursive(node->right, key);
         }
     }
-
     return std::nullopt;
 }
 

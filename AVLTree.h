@@ -66,6 +66,8 @@ public:
     // get key's value
     std::optional<size_t> get(const std::string &key) const;
 
+    std::optional<size_t> getRecursive(AVLNode *node, const std::string &key) const;
+
     // access value by key
     size_t &operator[](const std::string &key);
 
