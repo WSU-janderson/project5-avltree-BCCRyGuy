@@ -55,6 +55,7 @@ public:
     // insert key-value pair
     bool insert(const std::string &key, size_t value);
 
+    // recursive insert function
     bool insertRecursive(AVLNode *&node, const std::string &key, size_t value);
 
     // remove key-value pair
@@ -63,11 +64,13 @@ public:
     // check if key exists
     bool contains(const std::string &key) const;
 
+    // recursive contains function
     bool containsRecursive(AVLNode *node, const std::string &key) const;
 
     // get key's value
     std::optional<size_t> get(const std::string &key) const;
 
+    // recursive get function
     std::optional<size_t> getRecursive(AVLNode *node, const std::string &key) const;
 
     // access value by key
