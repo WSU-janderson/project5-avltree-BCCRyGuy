@@ -36,7 +36,7 @@ bool AVLTree::AVLNode::isLeaf() const {
 }
 
 size_t AVLTree::AVLNode::getHeight() const {
-    return 0;
+    return height;
 }
 
 int AVLTree::AVLNode::getBalance(const AVLNode *node) const {
