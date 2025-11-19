@@ -129,9 +129,28 @@ bool AVLTree::removeNode(AVLNode*& current){
 
 // recursive remove helper
 bool AVLTree::remove(AVLNode *&current, KeyType key) {
+    if (current == nullptr) {
+        return false;
+    }
 
-    
-    return false;
+    bool removed;
+    if (current->key == key) {
+        removed = removeNode(current);
+        if (removed) {
+            nodeCount--;
+        }
+    } else if (key < current->key) {
+        removed = remove(current->left, key);
+    } else {
+        removed = remove(current->right, key);
+    }
+
+    if (removed) {
+        updateHeight(current);
+        balanceNode(current);
+    }
+
+    return removed;
 }
 
 // rebalance node if unbalanced
@@ -143,22 +162,29 @@ bool AVLTree::insert(const std::string& key, size_t value) {
     return insertRecursive(root, key, value);
 }
 
-bool AVLTree::insertRecursive(AVLNode *&node, const std::string& key, size_t value) {
+bool AVLTree::insertRecursive(AVLNode *&current, const std::string& key, size_t value) {
+    // creating variable to store values of recursive calls
+    // instead of returning directly like in zybooks
     bool inserted;
-    if (node == nullptr) {
-        node = new AVLNode{key, value, 0, nullptr, nullptr};
+
+    // if the node is null create a new node, increment the count and return true
+    if (current == nullptr) {
+        current = new AVLNode{key, value, 0, nullptr, nullptr};
         nodeCount++;
         return true;
-    } else if (node->key == key) {
+    // if the node already exists (duplicate) return false
+    } else if (current->key == key) {
         return false;
-    } else if (key < node->key) {
-        inserted = insertRecursive(node->left, key, value);
+    // recursive call on left node if key parameter is less than current node's key
+    } else if (key < current->key) {
+        inserted = insertRecursive(current->left, key, value);
     } else {
-        inserted = insertRecursive(node->right, key, value);
+        inserted = insertRecursive(current->right, key, value);
     }
 
-    updateHeight(node);
-    balanceNode(node);
+    // update the height and balance of tree
+    updateHeight(current);
+    balanceNode(current);
 
     return inserted;
 }
@@ -173,6 +199,7 @@ bool AVLTree::contains(const std::string& key) const {
     return containsRecursive(root, key);
 }
 
+// recursive contains function. Referenced 10.11.1 zybooks
 bool AVLTree::containsRecursive(AVLNode* node, const std::string& key) const {
     if (node != nullptr) {
         if (node->key == key) {
@@ -192,6 +219,7 @@ std::optional<size_t> AVLTree::get(const std::string& key) const {
     return getRecursive(root, key);
 }
 
+// recursive get function. Referenced 10.11.1 zybooks
 std::optional<size_t> AVLTree::getRecursive(AVLNode* node, const std::string& key) const {
     if (node != nullptr) {
         if (node->key == key) {
