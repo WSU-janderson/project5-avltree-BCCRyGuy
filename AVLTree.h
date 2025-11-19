@@ -76,6 +76,9 @@ public:
     // access value by key
     size_t &operator[](const std::string &key);
 
+    // recursive funciton for operator
+    size_t &operatorRecursive(AVLNode *&opNode, const std::string &key);
+
     // get keys within range
     vector<std::string> findRange(const std::string &lowKey, const std::string &highKey) const;
 
