@@ -138,7 +138,27 @@ void AVLTree::balanceNode(AVLNode *&node) {
 
 // insert new key-value pair
 bool AVLTree::insert(const std::string& key, size_t value) {
-    return false;
+    return insertRecursive(root, key, value);
+}
+
+bool AVLTree::insertRecursive(AVLNode *&node, const std::string& key, size_t value) {
+    bool inserted;
+    if (node == nullptr) {
+        node = new AVLNode{key, value, 0, nullptr, nullptr};
+        nodeCount++;
+        return true;
+    } else if (node->key == key) {
+        return false;
+    } else if (key < node->key) {
+        inserted = insertRecursive(node->left, key, value);
+    } else {
+        inserted = insertRecursive(node->right, key, value);
+    }
+
+    updateHeight(node);
+    balanceNode(node);
+
+    return inserted;
 }
 
 // remove key-value pair

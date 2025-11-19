@@ -55,6 +55,8 @@ public:
     // insert key-value pair
     bool insert(const std::string &key, size_t value);
 
+    bool insertRecursive(AVLNode *&node, const std::string &key, size_t value);
+
     // remove key-value pair
     bool remove(const std::string &key);
 
