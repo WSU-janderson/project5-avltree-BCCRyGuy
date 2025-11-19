@@ -127,29 +127,36 @@ bool AVLTree::removeNode(AVLNode*& current){
     return true;
 }
 
-// recursive remove helper
+// recursive remove helper. Referenced zybooks BST Recursion and Removal, and AVL removals
 bool AVLTree::remove(AVLNode *&current, KeyType key) {
+    // base case, if current node is null return false
     if (current == nullptr) {
         return false;
     }
 
+    // storing bool value again to allow for balancing and updating height
     bool removed;
+    // if the key is found, remove the node and decrease nodeCount
     if (current->key == key) {
         removed = removeNode(current);
         if (removed) {
             nodeCount--;
         }
+    // if the key passed is less than, recursive call on the left child node
     } else if (key < current->key) {
         removed = remove(current->left, key);
+    // if not, recursive call on right child node
     } else {
         removed = remove(current->right, key);
     }
 
+    // if node was removed update height and balance
     if (removed) {
         updateHeight(current);
         balanceNode(current);
     }
 
+    // return bool value returned from removeNode
     return removed;
 }
 
@@ -157,11 +164,12 @@ bool AVLTree::remove(AVLNode *&current, KeyType key) {
 void AVLTree::balanceNode(AVLNode *&node) {
 }
 
-// insert new key-value pair
+// insert new key-value pair. Referenced 10.11.1 zybooks
 bool AVLTree::insert(const std::string& key, size_t value) {
     return insertRecursive(root, key, value);
 }
 
+// recursive insert function. Referenced zybooks BST Recursion and AVL insertions
 bool AVLTree::insertRecursive(AVLNode *&current, const std::string& key, size_t value) {
     // creating variable to store values of recursive calls
     // instead of returning directly like in zybooks
@@ -186,15 +194,16 @@ bool AVLTree::insertRecursive(AVLNode *&current, const std::string& key, size_t 
     updateHeight(current);
     balanceNode(current);
 
+    // return stored inserted bool value from recursive call
     return inserted;
 }
 
-// remove key-value pair
+// remove key-value pair. Referenced 10.11.1 zybooks
 bool AVLTree::remove(const std::string& key) {
     return remove(root, key);
 }
 
-// check if key exists
+// check if key exists. Referenced 10.11.1 zybooks
 bool AVLTree::contains(const std::string& key) const {
     return containsRecursive(root, key);
 }
@@ -214,7 +223,7 @@ bool AVLTree::containsRecursive(AVLNode* node, const std::string& key) const {
 
 }
 
-// get value for key
+// get value for key. Referenced 10.11.1 zybooks
 std::optional<size_t> AVLTree::get(const std::string& key) const {
     return getRecursive(root, key);
 }
