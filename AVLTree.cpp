@@ -15,12 +15,12 @@
 #include <string>
 
 // default constructor
-AVLTree::AVLTree() : root(nullptr) {
+AVLTree::AVLTree() : root(nullptr), nodeCount(0) {
 
 }
 
 // copy constructor
-AVLTree::AVLTree(const AVLTree& other) : root(nullptr) {
+AVLTree::AVLTree(const AVLTree& other) : root(nullptr), nodeCount(0) {
 
 }
 
@@ -200,7 +200,7 @@ std::vector<std::string> AVLTree::keys() const {
 
 // return number of nodes
 size_t AVLTree::size() const {
-    return 0;
+    return nodeCount;
 }
 
 // return height of tree
