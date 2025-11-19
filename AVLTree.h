@@ -92,6 +92,9 @@ public:
     // this overloaded remove will do the recursion to remove the node
     bool remove(AVLNode*& current, KeyType key);
 
+    // update height of node
+    void updateHeight(AVLNode *node);
+
     // removeNode contains the logic for actually removing a node based on the numebr of children
     bool removeNode(AVLNode*& current);
     // You will implement this, but it is needed for removeNode()

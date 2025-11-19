@@ -68,6 +68,11 @@ int AVLTree::AVLNode::getBalance(const AVLNode *node) const {
     return leftHeight - rightHeight;
 }
 
+// update height
+void AVLTree::updateHeight(AVLNode* node) {
+
+}
+
 // remove node
 bool AVLTree::removeNode(AVLNode*& current){
     if (!current) {
