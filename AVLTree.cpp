@@ -186,7 +186,10 @@ size_t AVLTree::size() const {
 
 // return height of tree
 size_t AVLTree::getHeight() const {
-    return 0;
+    if (root == nullptr) {
+        return 0;
+    }
+    return root->height;
 }
 
 // copy assignment
