@@ -129,6 +129,8 @@ bool AVLTree::removeNode(AVLNode*& current){
 
 // recursive remove helper
 bool AVLTree::remove(AVLNode *&current, KeyType key) {
+
+    
     return false;
 }
 
@@ -163,7 +165,7 @@ bool AVLTree::insertRecursive(AVLNode *&node, const std::string& key, size_t val
 
 // remove key-value pair
 bool AVLTree::remove(const std::string& key) {
-    return false;
+    return remove(root, key);
 }
 
 // check if key exists
