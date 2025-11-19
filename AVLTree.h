@@ -91,6 +91,7 @@ public:
 
     private:
     AVLNode* root;
+    size_t nodeCount;
 
     /* Helper methods for remove */
     // this overloaded remove will do the recursion to remove the node
