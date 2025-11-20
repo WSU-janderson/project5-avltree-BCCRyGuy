@@ -188,6 +188,10 @@ AVLTree::AVLNode* AVLTree::rotateRight(AVLNode* problemNode) {
     // leftRightChild = right child of hook node to be moved
     AVLNode* leftRightChild = hookNode->right;
 
+    // if the problem node is the root, update root
+    if (problemNode == root) {
+        root = hookNode;
+    }
 
     hookNode->right = problemNode;
     problemNode->left = leftRightChild;
