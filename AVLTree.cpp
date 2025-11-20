@@ -176,7 +176,7 @@ bool AVLTree::remove(AVLNode *&current, KeyType key) {
     }
 
     // if node was removed update height and balance
-    if (removed) {
+    if (removed && current != nullptr) {
         updateHeight(current);
         balanceNode(current);
     }
