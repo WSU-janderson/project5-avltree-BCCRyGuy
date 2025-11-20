@@ -359,9 +359,9 @@ void AVLTree::printTreeRecursive(std::ostream &os, const AVLNode *node, int dept
     printTreeRecursive(os, node->right, depth + 1);
 
     for (int i = 0; i < depth; i++) {
-        os << "    " << "{" << node->key << ": " << node->value << "}" << std::endl;
+        os << "    ";
     }
-
+    os << "{" << node->key << ": " << node->value << "}" << std::endl;
     // print left nodes next
     printTreeRecursive(os, node->left, depth + 1);
 }
