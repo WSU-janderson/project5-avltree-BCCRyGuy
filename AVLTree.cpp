@@ -205,8 +205,26 @@ AVLTree::AVLNode* AVLTree::rotateRight(AVLNode* problemNode) {
 }
 
 // rotate left
-AVLTree::AVLNode* AVLTree::rotateLeft(AVLNode* current) {
+AVLTree::AVLNode* AVLTree::rotateLeft(AVLNode* problemNode) {
+    // hook node = right child of problem node
+    AVLNode* hookNode = problemNode->right;
+    // leftRightChild = left child of hook node to be moved
+    AVLNode* rightLeftChild = hookNode->left;
 
+    // if the problem node is the root, update root
+    if (problemNode == root) {
+        root = hookNode;
+    }
+
+    hookNode->left = problemNode;
+    problemNode->right = rightLeftChild;
+
+    // update heights of both problem and hook
+    updateHeight(problemNode);
+    updateHeight(hookNode);
+
+    // return new root of subtree (hookNode)
+    return hookNode;
 }
 
 // insert new key-value pair. Referenced 10.11.1 zybooks
