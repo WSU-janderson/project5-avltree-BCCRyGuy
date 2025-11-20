@@ -386,7 +386,7 @@ void AVLTree::operator=(const AVLTree& other) {
     }
 
     deleteNodes(root);
-    root = other.root;
+    root = copyNode(other.root);
     nodeCount = other.nodeCount;
 }
 
