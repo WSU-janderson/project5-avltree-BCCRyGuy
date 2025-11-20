@@ -330,7 +330,18 @@ vector<std::string> AVLTree::findRange( const std::string& lowKey, const std::st
 
 // return all keys
 std::vector<std::string> AVLTree::keys() const {
+    std::vector<std::string> keys;
+    keysRecursive(root, keys);
+    return keys;
+}
 
+void AVLTree::keysRecursive(const AVLNode *node, std::vector<std::string> &key) const {
+    if (node == nullptr) {
+        return;
+    }
+    keysRecursive(node->left, key);
+    key.push_back(node->key);
+    keysRecursive(node->right, key);
 }
 
 // return number of nodes
