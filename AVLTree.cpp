@@ -30,6 +30,15 @@ AVLTree::~AVLTree() {
 
 }
 
+void AVLTree::deleteNodes(AVLNode *current) {
+    if (current == nullptr) {
+        return;
+    }
+    deleteNodes(current->left);
+    deleteNodes(current->right);
+    delete current;
+}
+
 // return number of children of node (left and right are child nodes)
 size_t AVLTree::AVLNode::numChildren() const {
     size_t count = 0;

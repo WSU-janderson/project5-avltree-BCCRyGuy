@@ -52,6 +52,9 @@ public:
     // destructor
     ~AVLTree();
 
+    // delete helper function for recursive destructor
+    void deleteNodes(AVLNode *current);
+
     // insert key-value pair
     bool insert(const std::string &key, size_t value);
 
