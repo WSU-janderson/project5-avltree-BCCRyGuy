@@ -366,6 +366,9 @@ void AVLTree::printTreeRecursive(std::ostream &os, const AVLNode *node, int dept
     printTreeRecursive(os, node->left, depth + 1);
 }
 
+// friend function definition
 std::ostream & operator<<(ostream &os, const AVLTree &avlTree) {
+    // call recursive function starting from root
+    avlTree.printTreeRecursive(os, avlTree.root, 0);
     return os;
 }
