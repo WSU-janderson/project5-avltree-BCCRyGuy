@@ -181,10 +181,21 @@ void AVLTree::balanceNode(AVLNode *&current) {
     }
 }
 
-AVLTree::AVLNode* AVLTree::rotateRight(AVLNode* current) {
+// rotate right
+AVLTree::AVLNode* AVLTree::rotateRight(AVLNode* problemNode) {
+    // hook node = left child of problem node
+    AVLNode* hookNode = problemNode->left;
+    // leftRightChild = right child of hook node to be moved
+    AVLNode* leftRightChild = hookNode->right;
 
+
+    hookNode->right = problemNode;
+    problemNode->left = leftRightChild;
+
+    // update heights of both current and newRoot
 }
 
+// rotate left
 AVLTree::AVLNode* AVLTree::rotateLeft(AVLNode* current) {
 
 }
