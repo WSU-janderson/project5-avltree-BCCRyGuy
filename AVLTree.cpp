@@ -347,3 +347,7 @@ size_t AVLTree::getHeight() const {
 void AVLTree::operator=(const AVLTree& other) {
 
 }
+
+std::ostream & operator<<(ostream &os, const AVLTree &avlTree) {
+    return os;
+}
