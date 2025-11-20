@@ -25,9 +25,11 @@ AVLTree::AVLTree(const AVLTree& other) : root(nullptr), nodeCount(0) {
 
 }
 
-// destructor
+// destructor. delete nodes, set root to null, set nodeCount to 0
 AVLTree::~AVLTree() {
-
+    deleteNodes(root);
+    root = nullptr;
+    nodeCount = 0;
 }
 
 void AVLTree::deleteNodes(AVLNode *current) {
