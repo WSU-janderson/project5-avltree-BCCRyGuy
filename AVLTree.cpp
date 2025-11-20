@@ -381,6 +381,10 @@ size_t AVLTree::getHeight() const {
 
 // copy assignment
 void AVLTree::operator=(const AVLTree& other) {
+    if (this == &other) {
+        return;
+    }
+
     deleteNodes(root);
     root = other.root;
     nodeCount = other.nodeCount;
