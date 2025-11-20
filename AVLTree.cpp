@@ -21,7 +21,7 @@ AVLTree::AVLTree() : root(nullptr), nodeCount(0) {
 }
 
 // copy constructor
-AVLTree::AVLTree(const AVLTree& other) : root(nullptr), nodeCount(0) {
+AVLTree::AVLTree(const AVLTree& other) : root(nullptr), nodeCount(other.nodeCount) {
 
 }
 
