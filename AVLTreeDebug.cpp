@@ -66,17 +66,17 @@ int main() {
     cout << endl;
 //
     // findRange
-    //vector<string> rangeTest = tree.findRange("D", "W");
+    vector<string> rangeTest = tree.findRange("D", "W");
     // 70 68 82 75 77 86
-    //for (auto val: rangeTest) {
-    //    cout << val << " ";
-    //}
-    //cout << endl << endl;
+    for (auto val: rangeTest) {
+        cout << val << " ";
+    }
+    cout << endl << endl;
 
     // operator[]
-    //tree["A"] = 108;
-    //cout << tree << endl;
-    //cout << endl;
+    tree["A"] = 108;
+    cout << tree << endl;
+    cout << endl;
 
     // remove
     bool removeResult;
