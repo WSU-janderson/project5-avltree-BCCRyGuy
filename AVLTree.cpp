@@ -13,6 +13,7 @@
 #include <optional>
 #include <vector>
 #include <string>
+#include <iostream>
 
 // default constructor
 AVLTree::AVLTree() : root(nullptr), nodeCount(0) {
@@ -126,6 +127,8 @@ bool AVLTree::removeNode(AVLNode*& current){
 
     return true;
 }
+
+
 
 // recursive remove helper. Referenced zybooks BST Recursion and Removal, and AVL removals
 bool AVLTree::remove(AVLNode *&current, KeyType key) {
@@ -345,6 +348,19 @@ size_t AVLTree::getHeight() const {
 
 // copy assignment
 void AVLTree::operator=(const AVLTree& other) {
+
+}
+
+void AVLTree::printTreeRecursive(std::ostream &os, const AVLNode *node, int depth) const {
+    if (node == nullptr) {
+        return;
+    }
+    // go as far right as possible before printing
+    printTreeRecursive(os, node->right, depth + 1);
+
+    for (int i = 0; i < depth; i++) {
+        os << "    " << "{" << node->key << ": " << node->value << "}" << std::endl;
+    }
 
 }
 

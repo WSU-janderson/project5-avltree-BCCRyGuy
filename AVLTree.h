@@ -101,6 +101,8 @@ public:
     AVLNode* root;
     size_t nodeCount;
 
+    void printTreeRecursive(std::ostream &os, const AVLNode *node, int depth) const;
+
     /* Helper methods for remove */
     // this overloaded remove will do the recursion to remove the node
     bool remove(AVLNode*& current, KeyType key);
