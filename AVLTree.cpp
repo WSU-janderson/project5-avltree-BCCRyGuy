@@ -32,6 +32,10 @@ AVLTree::~AVLTree() {
     nodeCount = 0;
 }
 
+AVLTree::AVLNode*& AVLTree::copyNode(const AVLNode *current) {
+
+}
+
 void AVLTree::deleteNodes(AVLNode *current) {
     if (current == nullptr) {
         return;
