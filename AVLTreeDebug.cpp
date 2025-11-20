@@ -74,29 +74,29 @@ int main() {
     cout << endl << endl;
 
     // operator[]
-//    tree["A"] = 108;
-//    cout << tree << endl;
-//    cout << endl;
-//
-//    // remove
-//    bool removeResult;
-//    removeResult= tree.remove("A"); // "A" is a leaf
-//    cout << endl << endl;
-//    cout << tree << endl;
-//
-//    removeResult = tree.remove("C"); // "C" has one child, single rotate left
-//    cout << endl << endl;
-//    cout << tree << endl;
-//
-//    removeResult = tree.remove("F"); // "F" has two children
-//    cout << endl << endl;
-//    cout << tree << endl;
-//
-//    removeResult = tree.remove("V");
-//    removeResult = tree.remove("X");
-//    removeResult = tree.remove("Z"); // double rotate right
-//    cout << endl << endl;
-//    cout << tree << endl;
+    tree["A"] = 108;
+    cout << tree << endl;
+    cout << endl;
+
+    // remove
+    bool removeResult;
+    removeResult= tree.remove("A"); // "A" is a leaf
+    cout << endl << endl;
+    cout << tree << endl;
+
+    removeResult = tree.remove("C"); // "C" has one child, single rotate left
+    cout << endl << endl;
+    cout << tree << endl;
+
+    removeResult = tree.remove("F"); // "F" has two children
+    cout << endl << endl;
+    cout << tree << endl;
+
+    removeResult = tree.remove("V");
+    removeResult = tree.remove("X");
+    removeResult = tree.remove("Z"); // double rotate right
+    cout << endl << endl;
+    cout << tree << endl;
 
     return 0;
 }
