@@ -381,7 +381,9 @@ size_t AVLTree::getHeight() const {
 
 // copy assignment
 void AVLTree::operator=(const AVLTree& other) {
-
+    deleteNodes(root);
+    root = other.root;
+    nodeCount = other.nodeCount;
 }
 
 void AVLTree::printTreeRecursive(std::ostream &os, const AVLNode *node, int depth) const {
