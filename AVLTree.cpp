@@ -32,7 +32,11 @@ AVLTree::~AVLTree() {
     nodeCount = 0;
 }
 
-AVLTree::AVLNode*& AVLTree::copyNode(const AVLNode *current) {
+AVLTree::AVLNode* AVLTree::copyNode(const AVLNode *current) {
+    if (current == nullptr) {
+        return nullptr;
+    }
+
     AVLNode* newNode = new AVLNode{current->key, current->value, current->height, nullptr, nullptr};
     newNode->left = copyNode(current->left);
     newNode->right = copyNode(current->right);

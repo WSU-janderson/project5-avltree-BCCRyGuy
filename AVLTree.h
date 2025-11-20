@@ -52,7 +52,7 @@ public:
     // destructor
     ~AVLTree();
 
-    AVLNode *&copyNode(const AVLNode *current);
+    AVLNode *copyNode(const AVLNode *current);
 
     // delete helper function for recursive destructor
     void deleteNodes(AVLNode *current);
