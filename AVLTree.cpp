@@ -3,6 +3,9 @@
  *
  * Project 5 AVLTree
  *
+ * the purpose of this program is to
+ *
+ *
  * Rylan Cheetham
  *
  */
@@ -32,17 +35,21 @@ AVLTree::~AVLTree() {
     nodeCount = 0;
 }
 
+// copyNode recursive function
 AVLTree::AVLNode* AVLTree::copyNode(const AVLNode *current) {
+    // check if null first
     if (current == nullptr) {
         return nullptr;
     }
 
+    // create a new node and recursively copy into it
     AVLNode* newNode = new AVLNode{current->key, current->value, current->height, nullptr, nullptr};
     newNode->left = copyNode(current->left);
     newNode->right = copyNode(current->right);
     return newNode;
 }
 
+// deleteNodes recursive function
 void AVLTree::deleteNodes(AVLNode *current) {
     if (current == nullptr) {
         return;
@@ -359,21 +366,26 @@ vector<std::string> AVLTree::findRange( const std::string& lowKey, const std::st
     return rangeString;
 }
 
-void AVLTree::findRangeRecursive(const AVLNode* node, const std::string& lowKey, const std::string& highKey, std::vector<size_t> &range) const {
-    if (node == nullptr) {
+// recursive helper function for findRange
+void AVLTree::findRangeRecursive(const AVLNode* current, const std::string& lowKey, const std::string& highKey, std::vector<size_t> &range) const {
+    // check if null
+    if (current == nullptr) {
         return;
     }
 
-    if (node->key > lowKey) {
-        findRangeRecursive(node->left, lowKey, highKey, range);
+    // if current node is greater than lowKey check for nodes in range
+    if (current->key > lowKey) {
+        findRangeRecursive(current->left, lowKey, highKey, range);
     }
 
-    if (node->key >= lowKey && node->key <= highKey) {
-        range.push_back(node->value);
+    // if current node key is in range include its value
+    if (current->key >= lowKey && current->key <= highKey) {
+        range.push_back(current->value);
     }
 
-    if (node->key < highKey) {
-        findRangeRecursive(node->right, lowKey, highKey, range);
+    // if current node is less than highKey check for nodes in range
+    if (current->key < highKey) {
+        findRangeRecursive(current->right, lowKey, highKey, range);
     }
 }
 
@@ -412,6 +424,7 @@ void AVLTree::operator=(const AVLTree& other) {
         return;
     }
 
+    // clear out n
     deleteNodes(root);
     root = copyNode(other.root);
     nodeCount = other.nodeCount;
