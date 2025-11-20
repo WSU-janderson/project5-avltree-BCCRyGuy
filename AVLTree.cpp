@@ -33,7 +33,10 @@ AVLTree::~AVLTree() {
 }
 
 AVLTree::AVLNode*& AVLTree::copyNode(const AVLNode *current) {
-
+    AVLNode* newNode = new AVLNode{current->key, current->value, current->height, nullptr, nullptr};
+    newNode->left = copyNode(current->left);
+    newNode->right = copyNode(current->right);
+    return newNode;
 }
 
 void AVLTree::deleteNodes(AVLNode *current) {
