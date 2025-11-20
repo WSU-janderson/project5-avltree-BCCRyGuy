@@ -339,9 +339,15 @@ size_t& AVLTree::operatorRecursive(AVLNode*& opNode, const std::string& key) {
     if (opNode->key == key) {
         return opNode->value;
     } else if (key < opNode->key) {
-        return operatorRecursive(opNode->left, key);
+        size_t& opValue = operatorRecursive(opNode->left, key);
+        updateHeight(opNode);
+        balanceNode(opNode);
+        return opValue;
     } else {
-        return operatorRecursive(opNode->right, key);
+        size_t& opValue = operatorRecursive(opNode->right, key);
+        updateHeight(opNode);
+        balanceNode(opNode);
+        return opValue;
     }
 }
 
