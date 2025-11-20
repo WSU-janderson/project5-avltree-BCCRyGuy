@@ -1,10 +1,10 @@
-/*
+/**
  * AVLTree.cpp
  *
  * Project 5 AVLTree
  *
- * the purpose of this program is to
- *
+ * the purpose of this program is to implement
+ * an AVL tree data structure
  *
  * Rylan Cheetham
  *
@@ -342,6 +342,7 @@ size_t& AVLTree::operator[](const std::string& key) {
     return operatorRecursive(root, key);
 }
 
+// recursive helper function for operator[]
 size_t& AVLTree::operatorRecursive(AVLNode*& opNode, const std::string& key) {
     if (opNode->key == key) {
         return opNode->value;

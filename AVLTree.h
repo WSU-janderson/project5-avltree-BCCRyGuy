@@ -3,6 +3,8 @@
  *
  * Project 5 AVLTree
  *
+ * Header file for AVLTree class
+ *
  * Rylan Cheetham
  *
  */
