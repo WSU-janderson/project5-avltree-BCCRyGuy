@@ -103,6 +103,8 @@ public:
 
     void printTreeRecursive(std::ostream &os, const AVLNode *node, int depth) const;
 
+    void keysRecursive(const AVLNode *node, std::vector<std::string> &key) const;
+
     /* Helper methods for remove */
     // this overloaded remove will do the recursion to remove the node
     bool remove(AVLNode*& current, KeyType key);
