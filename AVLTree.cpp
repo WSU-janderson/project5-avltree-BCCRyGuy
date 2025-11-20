@@ -347,7 +347,15 @@ size_t& AVLTree::operatorRecursive(AVLNode*& opNode, const std::string& key) {
 
 // return key in range
 vector<std::string> AVLTree::findRange( const std::string& lowKey, const std::string& highKey) const {
+    std::vector<size_t> range;
+    findRangeRecursive(root, lowKey, highKey, range);
+    return range;
+}
 
+void AVLTree::findRangeRecursive(const AVLNode* node, const std::string& lowKey, const std::string& highKey, std::vector<size_t> &range) const {
+    if (node == nullptr) {
+        return;
+    }
 }
 
 // return all keys

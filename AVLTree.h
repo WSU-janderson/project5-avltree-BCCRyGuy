@@ -87,6 +87,9 @@ public:
     // get keys within range
     vector<std::string> findRange(const std::string &lowKey, const std::string &highKey) const;
 
+    void findRangeRecursive(const AVLNode *node, const std::string &lowKey, const std::string &highKey,
+                            std::vector<size_t> &range) const;
+
     // return all keys in tree
     std::vector<std::string> keys() const;
 
