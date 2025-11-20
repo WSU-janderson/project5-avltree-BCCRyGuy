@@ -193,6 +193,11 @@ AVLTree::AVLNode* AVLTree::rotateRight(AVLNode* problemNode) {
     problemNode->left = leftRightChild;
 
     // update heights of both current and newRoot
+    updateHeight(problemNode);
+    updateHeight(hookNode);
+
+    // return new root of subtree
+    return hookNode;
 }
 
 // rotate left
